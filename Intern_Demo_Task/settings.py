@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
+import dj_database_url
+from decouple import config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -25,7 +28,7 @@ SECRET_KEY = 'xz($53w8-ef7qo*v#j)^+_if_e)s=%01oyqnju3t8n3d)#k#+2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['ask-adi-demo.herokuapp.com','127.0.0.1']
 
 STATICFILES_DIRS = [
     "/projects/Intern_Demo_Task/static" ,
@@ -52,6 +55,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'Intern_Demo_Task.urls'
@@ -127,5 +131,9 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = os.path.join(BASE_DIR, 'static'),
 
 
+STATICFILES_STORAGE = 'whitenoise.storange.CompressedManifestStorage'
+
+
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
+django_heroku.settings(locals())
 

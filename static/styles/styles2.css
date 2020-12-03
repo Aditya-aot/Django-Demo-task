@@ -1,3 +1,9 @@
+.form{
+  border: #e74c3c;
+  border-radius: 50px;
+}
+
+
 #container{
 	box-shadow: 0 15px 30px 1px rgba(128, 128, 128, 0.31);
 	background: rgba(255, 255, 255, 0.90);

@@ -12,7 +12,7 @@ class Question_Asked(models.Model):
 
 
 class Answer_model(models.Model):
-    chat = models.ForeignKey(Question_Asked ,related_name="answer", on_delete= models.CASCADE)
+    chat = models.ForeignKey(Question_Asked ,related_name="answers", on_delete= models.CASCADE)
     answer = models.TextField(null=True, blank=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE , null= True  )
     pub_date = models.DateTimeField(auto_now=False, auto_now_add=True, null=True)

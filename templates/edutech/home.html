@@ -30,14 +30,25 @@
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">Card title</h5>
+        <h5 class="card-title">Ask Question </h5>
         <p class="card-text"> Clarify Your Doubts In Your Language </p>
-       <form action="/ques/?username={{ user.first_name }}" method="post">
- {% csrf_token %}
-       <div class="buttons">
-      <button class="btn effect01" target="_blank"><span>Ask Question</span></button>
-      </div>
-</form>
+        <p class="card-text">  Accessible Everywhere  </p>
+        <p class="card-text">  Access to Quality Education Anytime  </p>
+           {% if user.is_authenticated %}
+              <form action="/ques/?username={{ user.first_name }}"  method="post">
+                    {% csrf_token %}
+                  <div class="buttons">
+                  <button class="btn effect01" target="_blank"><span>Ask Question</span></button>
+                  </div>
+              </form>
+              {% else %}
+               <form action="/accounts/login/">
+                    {% csrf_token %}
+                  <div class="buttons">
+                  <button class="btn effect01" target="_blank"><span>Ask Question</span></button>
+                  </div>
+              </form>
+               {% endif %} 
       </div>
     </div>
   </div>
@@ -48,22 +59,32 @@
 <div id="container">
 
 	<div class="product-details">
+  
 
-		<h2>Biru Putaran</h2>
+		<h2>Become Tecacher</h2>
 
-		<p >" Becaome a tecacher and Answers  "</p>
+		<p > Answers the Question from All over The World .</p>
+    <br>
 
 		<!-- 		Control -->
 		<div class="control">
 
 			<!-- Start Button buying -->
-			
-			<form action="/ans" method="post">
-      {% csrf_token %}
-        <div class="buttons">
-          <button class="btn effect01" target="_blank"><span>Answers Question</span></button>
-      </div>
-      </form>
+			{% if user.is_authenticated %}
+              <form action="/ans" method="post">
+              {% csrf_token %}
+                <div class="buttons">
+                  <button class="btn effect01" target="_blank"><span>Answers Question</span></button>
+              </div>
+              </form>
+      {% else %}
+               <form action="/accounts/login/" >
+              {% csrf_token %}
+                <div class="buttons">
+                  <button class="btn effect01" target="_blank"><span>Answers Question</span></button>
+              </div>
+              </form>
+       {% endif %}       
 
 		</div>
 

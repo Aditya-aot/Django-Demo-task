@@ -3,33 +3,47 @@
 
 <hr>
 
-<form action="/ques/?username={{ user.first_name }}" method="post">
- {% csrf_token %}
+{% if user.is_authenticated %}
+      <form action="/ques/?username={{ user.first_name }}" method="post">
+      {% csrf_token %}
         {{form}} <p>
-   
+        
         <p> <button class="button"><span>Submit </span></button> </p>
+      </form>
+{% else %}
+        <form action="/accounts/login/">
+        {% csrf_token %}
+                {{form}} <p>
+        
+         <p> <button class="button"><span>Submit Question </span></button> </p>
+      </form>
+ {% endif %}
 
 
-</form>
+
 
 <ol>
 {% for ques in ques %}
 <br>
 <li>
-<div class="card" style="width: 18rem;">
+<div class="card mb-3">
+    <div class='image_q'>
+  <img src="https://image.shutterstock.com/image-vector/concept-banner-hand-drawn-question-260nw-709907308.jpg" class="card-img-top" alt="...">
+      </div>
   <div class="card-body">
+   <div class="card-text"><small class="text-muted">@{{ques.user}}</small></div>
     <h5 class="card-title">{{ques.content}}</h5>
-    <h6 class="card-subtitle mb-2 text-muted">{{ques.pub_date}}</h6>
-    <h6 class="card-subtitle mb-2 text-muted">{{ques.user}}</h6>
-    <p class="card-text"> {{ques.message}}.</p>
-    <a href="#" class="card-link">Card link</a>
-    <a href="#" class="card-link">Another link</a>
+    <p class="card-text">{{ques.message}}</p>
+    <p class="card-text"><small class="text-muted">{{ques.pub_date}}</small></p>
+    <form action="/post/{{ques.pk}}/" method="post">
+        {% csrf_token %}
+        <p> <button class="button"><span>See all Answer </span></button> </p>
   </div>
 </div>
-
 <br>
 </li>
  {% endfor %}
  </ol>
+
 
 {% endblock content %}

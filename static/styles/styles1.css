@@ -1,0 +1,145 @@
+.button {
+  /* position: absolute;  */
+ /* left: 50%; */
+ /* top: 50%;  */
+ -webkit-transform: translate(-2%, 1%);
+         /* transform: translate(-50%, -50%); */
+ color: #000000;
+ /* text-decoration: none;  */
+ /* font-size: 2em; */
+ background: #fbff00;
+ display: inline-block;
+  font-family: Montserrat;
+ text-transform: uppercase;
+  /* padding: 0.5em 2em;  */
+ border: 2px solid #000000;
+ /* -webkit-transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1); */ 
+  /* transition: 0.02s 0.2s cubic-bezier(0.1, 0, 0.1, 1); */ 
+}
+.button::before {
+ content: "";
+ display: inline-block;
+ position: absolute;
+ top: 0;
+ left: 0;
+ right: 100%;
+ bottom: 0;
+ background: #f7f7f7;
+ -webkit-transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+ transition: 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+ z-index: -1;
+}
+.button::after {
+ content: "";
+ display: inline-block;
+ background-image: url("https://image.flaticon.com/icons/png/128/109/109617.png");
+ position: absolute;
+ top: 0;
+ left: calc(100% - 3em);
+ right: 3em;
+ bottom: 0;
+ background-size: 1.5em;
+ background-repeat: no-repeat;
+ background-position: center;
+ -webkit-transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+ transition: right 0.3s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.button:hover {
+ padding: 0.5em 3.5em 0.5em 0.5em;
+}
+.button:hover::before {
+ left: calc(100% - 3em);
+ right: 0;
+ -webkit-transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+ transition: 0.3s cubic-bezier(0.1, 0, 0.1, 1), left 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+.button:hover::after {
+ right: 0;
+ -webkit-transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+ transition: right 0.3s 0.2s cubic-bezier(0.1, 0, 0.1, 1);
+}
+   
+
+
+  
+  
+  
+  
+  
+  
+  
+  .box{
+      position:absolute;
+      left:50%;
+      top:75%;
+      transform: translate(-50%,-50%);
+        background-color: rgba(0, 0, 0, 0.89);
+      border-radius:3px;
+      padding:20px 100px;
+    }
+     .box2{
+      position:absolute;
+      left:50%;
+      top:53%;
+      transform: translate(-50%,-50%);
+        background-color: rgba(0, 0, 0, 0.89);
+      border-radius:3px;
+      padding:20px 100px;
+    }
+    .input-container{
+      position:relative;
+      margin-bottom:25px;
+    }
+    .input-container label{
+      position:absolute;
+      top:0px;
+      left:0px;
+      font-size:16px;
+      color:#fff;	
+        pointer-event:none;
+      transition: all 0.5s ease-in-out;
+    }
+    .input-container input{ 
+      border:0;
+      border-bottom:1px solid #555;  
+      background:transparent;
+      width:100%;
+      padding:8px 0 5px 0;
+      font-size:16px;
+      color:#fff;
+    }
+    .input-container input:focus{ 
+     border:none;	
+     outline:none;
+     border-bottom:1px solid #e74c3c;	
+    }
+    .btnn{
+      color:#fff;
+      background-color:#e74c3c;
+      outline: none;
+        border: 0;
+        color: #fff;
+      padding:10px 20px;
+      text-transform:uppercase;
+      margin-top:10px;
+      border-radius:2px;
+      cursor:pointer;
+      position:relative;
+    }
+    /*.btn:after{
+      content:"";
+      position:absolute;
+      background:rgba(0,0,0,0.50);
+      top:0;
+      right:0;
+      width:100%;
+      height:100%;
+    }*/
+    .input-container input:focus ~ label,
+    .input-container input:valid ~ label{
+      top:-12px;
+      font-size:12px;
+      
+    }
+          
+  

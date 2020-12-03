@@ -1,0 +1,48 @@
+{% extends 'edutech/base.html'%}
+{% block content %}
+
+ <br>
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">{{question.content}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{question.pub_date}}</h6>
+    <h6 class="card-subtitle mb-2 text-muted">{{question.user}}</h6>
+    <p class="card-text"> {{question.message}}.</p>
+    <a href="#" class="card-link">Card link</a>
+    <a href="#" class="card-link">Another link</a>
+  </div>
+</div>
+
+<br>
+
+
+
+<div class="form-group">
+    <form action="" method = "POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <p> <button class="button"><span>Add Answer </span></button> </p>
+
+
+    </form>
+    </div>
+
+
+ {% for ans in ans %}
+        <hr>
+        <br>
+           by :<strong>
+               {{ ans.user.username }} <br>
+           </strong>
+           {{ ans.answer }} <br>
+           {{ ans.pub_date }}
+
+                   {% endfor %}
+     </ol>
+
+             </div>
+
+
+
+
+{% endblock content %}

@@ -2,13 +2,13 @@
 {% block content %}
 
 <hr>
-
+<h4>Ask any question here or Clarify Your Doubts In Your Language </h4>
 {% if user.is_authenticated %}
       <form action="/ques/?username={{ user.first_name }}" method="post">
       {% csrf_token %}
         {{form}} <p>
         
-        <p> <button class="button"><span>Submit </span></button> </p>
+        <p> <button class="button"><span>Submit Question</span></button> </p>
       </form>
 {% else %}
         <form action="/accounts/login/">
